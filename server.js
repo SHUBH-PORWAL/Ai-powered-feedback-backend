@@ -12,7 +12,7 @@ connectDB();
 app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://your-frontend-domain.vercel.app' 
+    ? 'https://ai-powered-feedback-frontend.vercel.app' 
     : 'http://localhost:3000',
   credentials: true
 }));
@@ -48,4 +48,5 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+
 });
