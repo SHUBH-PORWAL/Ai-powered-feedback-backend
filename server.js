@@ -10,10 +10,7 @@ const app = express();
 connectDB();
 
 app.use(helmet());
-app.use(cors({
-  origin: true,   
-  credentials: true
-}));
+app.use(cors({ origin: process.env.NODE_ENV === 'production' ? 'https://ai-powered-feedback-frontend.vercel.app/' : 'http://localhost:3000', credentials: true }));;
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
@@ -48,5 +45,6 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 
 });
+
 
 
